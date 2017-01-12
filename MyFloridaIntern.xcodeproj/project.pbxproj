@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46B1D1B9A0B540E482B90389 /* Pods_MyFloridaIntern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF8CD3F756CE04ADA0E8BAC /* Pods_MyFloridaIntern.framework */; };
 		5E15DBA11E27F52C00F4FEC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E15DBA01E27F52C00F4FEC0 /* main.m */; };
 		5E15DBA41E27F52C00F4FEC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E15DBA31E27F52C00F4FEC0 /* AppDelegate.m */; };
 		5E15DBA71E27F52C00F4FEC0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E15DBA61E27F52C00F4FEC0 /* ViewController.m */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		048A9E5B66A27E303463EE10 /* Pods-MyFloridaIntern.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFloridaIntern.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFloridaIntern/Pods-MyFloridaIntern.release.xcconfig"; sourceTree = "<group>"; };
 		5E15DB9C1E27F52C00F4FEC0 /* MyFloridaIntern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFloridaIntern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E15DBA01E27F52C00F4FEC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5E15DBA21E27F52C00F4FEC0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		5E15DBAB1E27F52C00F4FEC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E15DBAE1E27F52C00F4FEC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E15DBB01E27F52C00F4FEC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABF8CD3F756CE04ADA0E8BAC /* Pods_MyFloridaIntern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFloridaIntern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF0CA95B868FE2CF541F50E3 /* Pods-MyFloridaIntern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFloridaIntern.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFloridaIntern/Pods-MyFloridaIntern.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46B1D1B9A0B540E482B90389 /* Pods_MyFloridaIntern.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				5E15DB9E1E27F52C00F4FEC0 /* MyFloridaIntern */,
 				5E15DB9D1E27F52C00F4FEC0 /* Products */,
+				DE5D75FEEF8CCDA718BBDF63 /* Pods */,
+				6F28828D4341D0E5BE26A169 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6F28828D4341D0E5BE26A169 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABF8CD3F756CE04ADA0E8BAC /* Pods_MyFloridaIntern.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE5D75FEEF8CCDA718BBDF63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AF0CA95B868FE2CF541F50E3 /* Pods-MyFloridaIntern.debug.xcconfig */,
+				048A9E5B66A27E303463EE10 /* Pods-MyFloridaIntern.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E15DBB31E27F52C00F4FEC0 /* Build configuration list for PBXNativeTarget "MyFloridaIntern" */;
 			buildPhases = (
+				AE72C48BEC11E4DBD1C63955 /* [CP] Check Pods Manifest.lock */,
 				5E15DB981E27F52C00F4FEC0 /* Sources */,
 				5E15DB991E27F52C00F4FEC0 /* Frameworks */,
 				5E15DB9A1E27F52C00F4FEC0 /* Resources */,
+				20A57F4D2F3D24B3D5D7E810 /* [CP] Embed Pods Frameworks */,
+				8204630F4703D059736660EC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20A57F4D2F3D24B3D5D7E810 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFloridaIntern/Pods-MyFloridaIntern-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8204630F4703D059736660EC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFloridaIntern/Pods-MyFloridaIntern-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE72C48BEC11E4DBD1C63955 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5E15DB981E27F52C00F4FEC0 /* Sources */ = {
@@ -270,6 +345,7 @@
 		};
 		5E15DBB41E27F52C00F4FEC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF0CA95B868FE2CF541F50E3 /* Pods-MyFloridaIntern.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyFloridaIntern/Info.plist;
@@ -281,6 +357,7 @@
 		};
 		5E15DBB51E27F52C00F4FEC0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 048A9E5B66A27E303463EE10 /* Pods-MyFloridaIntern.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyFloridaIntern/Info.plist;
