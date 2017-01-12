@@ -4,4 +4,5 @@ use_frameworks!
 target 'MyFloridaIntern' do
   pod 'AFNetworking', '~> 3.0'
   pod 'DateTools'
+  pod 'UICKeyChainStore'
 end
