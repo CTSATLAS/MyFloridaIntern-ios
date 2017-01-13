@@ -48,8 +48,7 @@
 }
 
 - (IBAction)attemptLogin:(id)sender {
-    NSLog(@"Did return");
-    
+   
     NSString *email = _emailField.text;
     NSString *password = _passwordField.text;
     NSString *urlString = @"https://steve.myfloridaintern.com/api/login";
@@ -60,10 +59,14 @@
     
     [sessionManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionTask *task, id responseObject){
         NSDictionary *responseDict = (NSDictionary *) responseObject;
+        
+        // Save the api_token for later requests
         UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"com.completetechnologysolutions.myfloridaintern"];
         keychain[@"apiToken"] = responseDict[@"api_token"];
+        
+        // Switch to the logged in view
+        [[UIApplication sharedApplication].keyWindow setRootViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController]];
     } failure:^(NSURLSessionTask *operation, NSError *error){
-        NSLog(@"fucking failed");
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Login Incorrect"
                                                                        message:@"Your email and/or password was incorrect"
                                                                 preferredStyle:UIAlertControllerStyleAlert];
