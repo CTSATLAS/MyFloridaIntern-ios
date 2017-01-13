@@ -6,6 +6,7 @@
 //  Copyright © 2017 Complete Technology Solutions. All rights reserved.
 //
 
+#import <UICKeyChainStore/UICKeyChainStore.h>
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

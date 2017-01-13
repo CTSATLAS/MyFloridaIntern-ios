@@ -14,6 +14,7 @@
 		5E15DBAA1E27F52C00F4FEC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E15DBA81E27F52C00F4FEC0 /* Main.storyboard */; };
 		5E15DBAC1E27F52C00F4FEC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E15DBAB1E27F52C00F4FEC0 /* Assets.xcassets */; };
 		5E15DBAF1E27F52C00F4FEC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E15DBAD1E27F52C00F4FEC0 /* LaunchScreen.storyboard */; };
+		5E2A9AB61E2800D800B0C6CC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A9AB51E2800D800B0C6CC /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		5E15DBAB1E27F52C00F4FEC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E15DBAE1E27F52C00F4FEC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E15DBB01E27F52C00F4FEC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E2A9AB51E2800D800B0C6CC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		5E2A9AB71E2800F700B0C6CC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		ABF8CD3F756CE04ADA0E8BAC /* Pods_MyFloridaIntern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFloridaIntern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0CA95B868FE2CF541F50E3 /* Pods-MyFloridaIntern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFloridaIntern.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFloridaIntern/Pods-MyFloridaIntern.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +77,8 @@
 				5E15DBAD1E27F52C00F4FEC0 /* LaunchScreen.storyboard */,
 				5E15DBB01E27F52C00F4FEC0 /* Info.plist */,
 				5E15DB9F1E27F52C00F4FEC0 /* Supporting Files */,
+				5E2A9AB51E2800D800B0C6CC /* LoginViewController.m */,
+				5E2A9AB71E2800F700B0C6CC /* LoginViewController.h */,
 			);
 			path = MyFloridaIntern;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				TargetAttributes = {
 					5E15DB9B1E27F52C00F4FEC0 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = Y5X8482YT9;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -225,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E2A9AB61E2800D800B0C6CC /* LoginViewController.m in Sources */,
 				5E15DBA71E27F52C00F4FEC0 /* ViewController.m in Sources */,
 				5E15DBA41E27F52C00F4FEC0 /* AppDelegate.m in Sources */,
 				5E15DBA11E27F52C00F4FEC0 /* main.m in Sources */,
@@ -348,6 +355,7 @@
 			baseConfigurationReference = AF0CA95B868FE2CF541F50E3 /* Pods-MyFloridaIntern.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y5X8482YT9;
 				INFOPLIST_FILE = MyFloridaIntern/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.completetechnologysolutions.MyFloridaIntern;
@@ -360,6 +368,7 @@
 			baseConfigurationReference = 048A9E5B66A27E303463EE10 /* Pods-MyFloridaIntern.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y5X8482YT9;
 				INFOPLIST_FILE = MyFloridaIntern/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.completetechnologysolutions.MyFloridaIntern;
@@ -386,6 +395,7 @@
 				5E15DBB51E27F52C00F4FEC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

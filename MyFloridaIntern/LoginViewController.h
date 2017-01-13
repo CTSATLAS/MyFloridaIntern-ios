@@ -6,8 +6,17 @@
 //  Copyright © 2017 Complete Technology Solutions. All rights reserved.
 //
 
-#ifndef LoginViewController_h
-#define LoginViewController_h
+#import <AFNetworking/AFNetworking.h>
+#import <UICKeyChainStore/UICKeyChainStore.h>
+#import <UIKit/UIKit.h>
 
+@interface LoginViewController : UIViewController <UITextFieldDelegate>
 
-#endif /* LoginViewController_h */
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+- (IBAction)attemptLogin:(id)sender;
+- (IBAction)loginPressed:(id)sender;
+
+@end
