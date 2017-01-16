@@ -16,6 +16,7 @@
 		5E15DBAF1E27F52C00F4FEC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E15DBAD1E27F52C00F4FEC0 /* LaunchScreen.storyboard */; };
 		5E2A9AB61E2800D800B0C6CC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A9AB51E2800D800B0C6CC /* LoginViewController.m */; };
 		5E2A9ABE1E29682000B0C6CC /* AppointmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A9ABD1E29682000B0C6CC /* AppointmentsTableViewController.m */; };
+		5E2A9AC41E2D194A00B0C6CC /* AppointmentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A9AC31E2D194A00B0C6CC /* AppointmentsTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		5E2A9AB71E2800F700B0C6CC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5E2A9ABC1E29682000B0C6CC /* AppointmentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentsTableViewController.h; sourceTree = "<group>"; };
 		5E2A9ABD1E29682000B0C6CC /* AppointmentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentsTableViewController.m; sourceTree = "<group>"; };
+		5E2A9AC21E2D194A00B0C6CC /* AppointmentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentsTableViewCell.h; sourceTree = "<group>"; };
+		5E2A9AC31E2D194A00B0C6CC /* AppointmentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentsTableViewCell.m; sourceTree = "<group>"; };
 		ABF8CD3F756CE04ADA0E8BAC /* Pods_MyFloridaIntern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFloridaIntern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0CA95B868FE2CF541F50E3 /* Pods-MyFloridaIntern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFloridaIntern.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFloridaIntern/Pods-MyFloridaIntern.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +87,8 @@
 				5E15DB9F1E27F52C00F4FEC0 /* Supporting Files */,
 				5E2A9AB51E2800D800B0C6CC /* LoginViewController.m */,
 				5E2A9AB71E2800F700B0C6CC /* LoginViewController.h */,
+				5E2A9AC21E2D194A00B0C6CC /* AppointmentsTableViewCell.h */,
+				5E2A9AC31E2D194A00B0C6CC /* AppointmentsTableViewCell.m */,
 			);
 			path = MyFloridaIntern;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				5E2A9AB61E2800D800B0C6CC /* LoginViewController.m in Sources */,
 				5E15DBA71E27F52C00F4FEC0 /* ViewController.m in Sources */,
 				5E15DBA41E27F52C00F4FEC0 /* AppDelegate.m in Sources */,
+				5E2A9AC41E2D194A00B0C6CC /* AppointmentsTableViewCell.m in Sources */,
 				5E15DBA11E27F52C00F4FEC0 /* main.m in Sources */,
 				5E2A9ABE1E29682000B0C6CC /* AppointmentsTableViewController.m in Sources */,
 			);

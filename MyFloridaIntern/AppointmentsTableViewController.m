@@ -68,6 +68,7 @@
                         self.refreshControl.attributedTitle = attributedTitle;
                         
                         [self.refreshControl endRefreshing];
+                            NSLog(@"%@", appointments);
                     }
                 }
                 failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -88,11 +89,27 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppointmentCell"];
+    AppointmentsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppointmentCell" forIndexPath:indexPath];
     NSDictionary *appointment = [appointments objectAtIndex:indexPath.row];
+    NSDate *appointmentDate = [NSDate dateWithString:[appointment objectForKey:@"appointment"] formatString:@"y-L-d H:m:s"];
     
-    cell.textLabel.text = [appointment objectForKey:@"company_name"];
-    cell.detailTextLabel.text = [appointment objectForKey:@"appointment"];
+    // Circular logo
+    cell.companyLogo.layer.cornerRadius = 24.0f;
+    cell.companyLogo.clipsToBounds = YES;
+    
+    cell.companyName.text = [appointment objectForKey:@"company_name"];
+    cell.appointmentTime.text = [appointmentDate formattedDateWithFormat:@"H:mma"];
+    
+    NSURL *companyLogoURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://steve.myfloridaintern.com/img/avatars/s_%@", [appointment objectForKey:@"avatar"]]];
+    
+    // Create a request to download the image so we can cache it locally
+    NSURLRequest *imageRequest = [NSURLRequest requestWithURL:companyLogoURL
+                                                  cachePolicy:NSURLRequestReturnCacheDataElseLoad
+                                              timeoutInterval:60];
+
+    // Load the company logo asynchronously
+    [cell.companyLogo setImageWithURLRequest:imageRequest placeholderImage:nil success:nil failure:nil];
+    
     return cell;
 }
 

@@ -7,9 +7,13 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/UIImageView+AFNetworking.h>
 #import <DateTools/DateTools.h>
+#import <QuartzCore/QuartzCore.h>
 #import <UICKeyChainStore/UICKeyChainStore.h>
 #import <UIKit/UIKit.h>
+
+#import "AppointmentsTableViewCell.h"
 
 @interface AppointmentsTableViewController : UITableViewController
 
