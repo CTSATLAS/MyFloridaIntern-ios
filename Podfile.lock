@@ -15,18 +15,21 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - DateTools (1.7.0)
+  - OpenTok (2.9.2)
   - UICKeyChainStore (2.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - DateTools
+  - OpenTok
   - UICKeyChainStore
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  OpenTok: aa00296d8c48972cbbd18e2e3954955ea6fb9501
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
 
-PODFILE CHECKSUM: 4cbfce27983db568692ba634f5ab4d67f8d85903
+PODFILE CHECKSUM: 205451aec2c158d31dbeda6b12551f5e1273866c
 
 COCOAPODS: 1.1.1
