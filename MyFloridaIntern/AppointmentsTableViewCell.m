@@ -21,4 +21,9 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)joinSession:(id)sender {
+//    ViewController *rootViewController = (ViewController *)[[(AppDelegate *) [[UIApplication sharedApplication] delegate] window] rootViewController];
+//    [rootViewController performSegueWithIdentifier:@"SessionSegue" sender:self];
+}
+
 @end

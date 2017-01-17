@@ -7,6 +7,7 @@
 //
 
 #import "AppointmentsTableViewController.h"
+#import "AppointmentSessionViewController.h"
 
 @interface AppointmentsTableViewController ()
 
@@ -98,8 +99,7 @@
     cell.companyLogo.clipsToBounds = YES;
     
     cell.companyName.text = [appointment objectForKey:@"company_name"];
-    cell.appointmentTime.text = [appointmentDate formattedDateWithFormat:@"H:mma"];
-    
+    cell.appointmentTime.text = [appointmentDate formattedDateWithFormat:@"h:mma"];    
     NSURL *companyLogoURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://steve.myfloridaintern.com/img/avatars/s_%@", [appointment objectForKey:@"avatar"]]];
     
     // Create a request to download the image so we can cache it locally
@@ -113,14 +113,20 @@
     return cell;
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSLog(@"preparing");
+    NSLog(@"%@", segue.identifier);
+    if ([segue.identifier isEqualToString:@"SessionSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        AppointmentSessionViewController *sessionViewController = segue.destinationViewController;
+        NSDictionary *selectedAppointment = [appointments objectAtIndex:indexPath.row];
+        sessionViewController.appointmentId = [selectedAppointment objectForKey:@"id"];
+        sessionViewController.apiKey = [selectedAppointment objectForKey:@"api_key"];
+        sessionViewController.sessionId = [selectedAppointment objectForKey:@"session_id"];
+    }
 }
-*/
 
 @end
