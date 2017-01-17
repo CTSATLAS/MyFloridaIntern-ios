@@ -17,13 +17,15 @@
 
 @implementation AppointmentsTableViewController
 {
-    NSMutableArray  *appointments;
+    NSMutableDictionary *appointments;
 }
 
 @synthesize apiToken;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    appointments = [[NSMutableDictionary alloc] init];
 
     // Initialize the refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -56,7 +58,19 @@
              parameters:parameters
                progress:nil
                 success:^(NSURLSessionTask *task, id responseObject){
-                    appointments = responseObject;
+                    NSLog(@"%@", responseObject);
+                    for (id appointment in responseObject) {
+                        NSDate *appointmentDate = [NSDate dateWithString:appointment[@"appointment"] formatString:@"y-L-d H:m:s"];
+                        NSString *appointmentSectionHeader = [appointmentDate formattedDateWithFormat:@"EEEE, MMMM d"];
+
+                        if (!appointments[appointmentSectionHeader]) {
+                            appointments[appointmentSectionHeader] = [[NSMutableArray alloc] init];
+                        }
+                        
+                        NSMutableArray *appointmentsForKey = [appointments objectForKey:appointmentSectionHeader];
+                        [appointmentsForKey addObject:appointment];
+                    }
+
                     [self.tableView reloadData];
                     
                     if (self.refreshControl) {
@@ -69,7 +83,6 @@
                         self.refreshControl.attributedTitle = attributedTitle;
                         
                         [self.refreshControl endRefreshing];
-                            NSLog(@"%@", appointments);
                     }
                 }
                 failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -82,16 +95,28 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    NSArray *keys = [appointments allKeys];
+    return [keys count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSArray *keys = [appointments allKeys];
+    return [keys objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [appointments count];
+    NSArray *keys = [appointments allKeys];
+    NSString *sectionTitle = [keys objectAtIndex:section];
+    NSArray *sectionAppointments = [appointments objectForKey:sectionTitle];
+    return [sectionAppointments count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AppointmentsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppointmentCell" forIndexPath:indexPath];
-    NSDictionary *appointment = [appointments objectAtIndex:indexPath.row];
+    NSArray *sectionKeys = [appointments allKeys];
+    NSString *sectionTitle = [sectionKeys objectAtIndex:indexPath.section];
+    NSArray *sectionAppointments = [appointments objectForKey:sectionTitle];
+    NSDictionary *appointment = [sectionAppointments objectAtIndex:indexPath.row];
     NSDate *appointmentDate = [NSDate dateWithString:[appointment objectForKey:@"appointment"] formatString:@"y-L-d H:m:s"];
     
     // Circular logo
@@ -109,7 +134,7 @@
 
     // Load the company logo asynchronously
     [cell.companyLogo setImageWithURLRequest:imageRequest placeholderImage:nil success:nil failure:nil];
-    
+
     return cell;
 }
 
@@ -117,16 +142,14 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"preparing");
-    NSLog(@"%@", segue.identifier);
-    if ([segue.identifier isEqualToString:@"SessionSegue"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        AppointmentSessionViewController *sessionViewController = segue.destinationViewController;
-        NSDictionary *selectedAppointment = [appointments objectAtIndex:indexPath.row];
-        sessionViewController.appointmentId = [selectedAppointment objectForKey:@"id"];
-        sessionViewController.apiKey = [selectedAppointment objectForKey:@"api_key"];
-        sessionViewController.sessionId = [selectedAppointment objectForKey:@"session_id"];
-    }
+//    if ([segue.identifier isEqualToString:@"SessionSegue"]) {
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        AppointmentSessionViewController *sessionViewController = segue.destinationViewController;
+//        NSDictionary *selectedAppointment = [appointments objectAtIndex:indexPath.row];
+//        sessionViewController.appointmentId = [selectedAppointment objectForKey:@"id"];
+//        sessionViewController.apiKey = [selectedAppointment objectForKey:@"api_key"];
+//        sessionViewController.sessionId = [selectedAppointment objectForKey:@"session_id"];
+//    }
 }
 
 @end
