@@ -64,11 +64,11 @@
                         NSString *appointmentSectionHeader = [appointmentDate formattedDateWithFormat:@"EEEE, MMMM d"];
 
                         if (!appointments[appointmentSectionHeader]) {
-                            appointments[appointmentSectionHeader] = [[NSMutableArray alloc] init];
+                            appointments[appointmentSectionHeader] = [NSMutableArray arrayWithObject:appointment];
+                        } else {
+                            NSMutableArray *appointmentsForKey = [appointments objectForKey:appointmentSectionHeader];
+                            [appointmentsForKey addObject:appointment];
                         }
-                        
-                        NSMutableArray *appointmentsForKey = [appointments objectForKey:appointmentSectionHeader];
-                        [appointmentsForKey addObject:appointment];
                     }
 
                     [self.tableView reloadData];
@@ -77,7 +77,10 @@
                         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
                         [formatter setDateFormat:@"MMM d, h:mm a"];
                         NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
-                        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor colorWithRed:32.0f / 255.0f green:32.0f / 255.0f blue:31.0f / 255.0f alpha:1.0f]
+                        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor colorWithRed:32.0f / 255.0f
+                                                                                                           green:32.0f / 255.0f
+                                                                                                            blue:31.0f / 255.0f
+                                                                                                           alpha:1.0f]
                                                                                     forKey:NSForegroundColorAttributeName];
                         NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
                         self.refreshControl.attributedTitle = attributedTitle;
@@ -142,14 +145,22 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"SessionSegue"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        AppointmentSessionViewController *sessionViewController = segue.destinationViewController;
-//        NSDictionary *selectedAppointment = [appointments objectAtIndex:indexPath.row];
-//        sessionViewController.appointmentId = [selectedAppointment objectForKey:@"id"];
-//        sessionViewController.apiKey = [selectedAppointment objectForKey:@"api_key"];
-//        sessionViewController.sessionId = [selectedAppointment objectForKey:@"session_id"];
-//    }
+    if ([segue.identifier isEqualToString:@"SessionSegue"]) {
+        // Grab the point of touch for the button so we know what appointment they're trying to join
+        CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+        AppointmentSessionViewController *sessionViewController = segue.destinationViewController;
+        NSArray *sectionKeys = [appointments allKeys];
+        NSString *sectionTitle = [sectionKeys objectAtIndex:indexPath.section];
+        NSArray *sectionAppointments = [appointments objectForKey:sectionTitle];
+        NSDictionary *selectedAppointment = [sectionAppointments objectAtIndex:indexPath.row];
+        
+        // Set properties of AppointmentSessionViewController
+        sessionViewController.appointmentId = [selectedAppointment objectForKey:@"id"];
+        sessionViewController.apiKey = [selectedAppointment objectForKey:@"api_key"];
+        sessionViewController.sessionId = [selectedAppointment objectForKey:@"session_id"];
+    }
 }
 
 @end
