@@ -26,6 +26,9 @@
     [super viewDidLoad];
     
     appointments = [[NSMutableDictionary alloc] init];
+    
+    // Change color of the back button
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 
     // Initialize the refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
