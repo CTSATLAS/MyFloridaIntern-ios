@@ -35,7 +35,7 @@
                   forControlEvents:UIControlEventValueChanged];
     
     // Pull the initial data
-    [self refreshData];
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +44,7 @@
 
 #pragma mark - Retrieve data from server
 
-- (void)refreshData
+- (void)loadData
 {
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"com.completetechnologysolutions.myfloridaintern"];
     apiToken = keychain[@"apiToken"];
@@ -93,6 +93,12 @@
                         [self.refreshControl endRefreshing];
                     }
                 }];
+}
+
+- (void)refreshData {
+    [appointments removeAllObjects];
+    [self.tableView reloadData];
+    [self loadData];
 }
 
 #pragma mark - Table view data source
