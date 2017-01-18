@@ -6,12 +6,15 @@
 //  Copyright © 2017 Complete Technology Solutions. All rights reserved.
 //
 
+#import <SWRevealViewController/SWRevealViewController.h>
+
 #import "AppointmentsTableViewController.h"
 #import "AppointmentSessionViewController.h"
 
 @interface AppointmentsTableViewController ()
 
 @property (nonatomic, retain) NSString *apiToken;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end
 
@@ -24,6 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
     
     appointments = [[NSMutableDictionary alloc] init];
     
