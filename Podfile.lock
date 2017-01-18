@@ -16,20 +16,23 @@ PODS:
     - AFNetworking/NSURLSession
   - DateTools (1.7.0)
   - OpenTok (2.9.2)
+  - SWRevealViewController (2.3.0)
   - UICKeyChainStore (2.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - DateTools
   - OpenTok
+  - SWRevealViewController (~> 2.3)
   - UICKeyChainStore
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   OpenTok: aa00296d8c48972cbbd18e2e3954955ea6fb9501
+  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
 
-PODFILE CHECKSUM: 205451aec2c158d31dbeda6b12551f5e1273866c
+PODFILE CHECKSUM: 7e51f842c5a5bdda89544ac92a18204ff1928247
 
 COCOAPODS: 1.1.1
