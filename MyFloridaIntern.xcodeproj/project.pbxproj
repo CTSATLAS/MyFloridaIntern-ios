@@ -14,6 +14,8 @@
 		5E15DBAA1E27F52C00F4FEC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E15DBA81E27F52C00F4FEC0 /* Main.storyboard */; };
 		5E15DBAC1E27F52C00F4FEC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E15DBAB1E27F52C00F4FEC0 /* Assets.xcassets */; };
 		5E15DBAF1E27F52C00F4FEC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E15DBAD1E27F52C00F4FEC0 /* LaunchScreen.storyboard */; };
+		5E1E5C521E2FFA0B001F9655 /* SidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E5C511E2FFA0B001F9655 /* SidebarTableViewController.m */; };
+		5E1E5C551E2FFED6001F9655 /* QrCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E5C541E2FFED6001F9655 /* QrCodeViewController.m */; };
 		5E2A9AB61E2800D800B0C6CC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A9AB51E2800D800B0C6CC /* LoginViewController.m */; };
 		5E2A9ABE1E29682000B0C6CC /* AppointmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A9ABD1E29682000B0C6CC /* AppointmentsTableViewController.m */; };
 		5E2A9AC41E2D194A00B0C6CC /* AppointmentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A9AC31E2D194A00B0C6CC /* AppointmentsTableViewCell.m */; };
@@ -32,6 +34,10 @@
 		5E15DBAB1E27F52C00F4FEC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E15DBAE1E27F52C00F4FEC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E15DBB01E27F52C00F4FEC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E1E5C501E2FFA0B001F9655 /* SidebarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarTableViewController.h; sourceTree = "<group>"; };
+		5E1E5C511E2FFA0B001F9655 /* SidebarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarTableViewController.m; sourceTree = "<group>"; };
+		5E1E5C531E2FFED6001F9655 /* QrCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrCodeViewController.h; sourceTree = "<group>"; };
+		5E1E5C541E2FFED6001F9655 /* QrCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QrCodeViewController.m; sourceTree = "<group>"; };
 		5E2A9AB51E2800D800B0C6CC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5E2A9AB71E2800F700B0C6CC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5E2A9ABC1E29682000B0C6CC /* AppointmentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentsTableViewController.h; sourceTree = "<group>"; };
@@ -94,6 +100,10 @@
 				5E2A9AC31E2D194A00B0C6CC /* AppointmentsTableViewCell.m */,
 				5E2A9AC51E2D25F200B0C6CC /* AppointmentSessionViewController.h */,
 				5E2A9AC61E2D25F200B0C6CC /* AppointmentSessionViewController.m */,
+				5E1E5C501E2FFA0B001F9655 /* SidebarTableViewController.h */,
+				5E1E5C511E2FFA0B001F9655 /* SidebarTableViewController.m */,
+				5E1E5C531E2FFED6001F9655 /* QrCodeViewController.h */,
+				5E1E5C541E2FFED6001F9655 /* QrCodeViewController.m */,
 			);
 			path = MyFloridaIntern;
 			sourceTree = "<group>";
@@ -246,10 +256,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E1E5C521E2FFA0B001F9655 /* SidebarTableViewController.m in Sources */,
 				5E2A9AC71E2D25F200B0C6CC /* AppointmentSessionViewController.m in Sources */,
 				5E2A9AB61E2800D800B0C6CC /* LoginViewController.m in Sources */,
 				5E15DBA71E27F52C00F4FEC0 /* ViewController.m in Sources */,
 				5E15DBA41E27F52C00F4FEC0 /* AppDelegate.m in Sources */,
+				5E1E5C551E2FFED6001F9655 /* QrCodeViewController.m in Sources */,
 				5E2A9AC41E2D194A00B0C6CC /* AppointmentsTableViewCell.m in Sources */,
 				5E15DBA11E27F52C00F4FEC0 /* main.m in Sources */,
 				5E2A9ABE1E29682000B0C6CC /* AppointmentsTableViewController.m in Sources */,
