@@ -21,17 +21,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self loadUserInformation];
+    
     // Style the table
     self.tableView.backgroundColor = [UIColor colorWithRed:32.0f / 255.0f green:32.0f / 255.0f blue:31.0f / 255.0f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithRed:32.0f / 255.0f green:32.0f / 255.0f blue:31.0f / 255.0f alpha:0.0f];
     
     menuItems = @[@"interviewAppointments", @"qrCode"];
+}
+
+- (void)loadUserInformation {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _userFullName.text = [defaults objectForKey:@"fullName"];
+    _userMajor.text = [defaults objectForKey:@"major"];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    _userAvatar.layer.cornerRadius = 50.0f;
+    _userAvatar.clipsToBounds = YES;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSURL *avatarURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://steve.myfloridaintern.com/img/avatars/m_%@", [defaults objectForKey:@"avatar"]]];
+    
+    // Create a request to download the image so we can cache it locally
+    NSURLRequest *imageRequest = [NSURLRequest requestWithURL:avatarURL
+                                                  cachePolicy:NSURLRequestReturnCacheDataElseLoad
+                                              timeoutInterval:60];
+    
+    // Load the company logo asynchronously
+    [_userAvatar setImageWithURLRequest:imageRequest placeholderImage:nil success:nil failure:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,43 +67,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *CellIdentifier = [menuItems objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    UIView *cellBackground = [[UIView alloc] init];
+    cellBackground.backgroundColor = [UIColor colorWithRed:79.0 / 255.0f green:151.0 / 255.0f blue:209.0 / 255.0f alpha:1.0];
+    [cell setSelectedBackgroundView:cellBackground];
 
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Navigation
 

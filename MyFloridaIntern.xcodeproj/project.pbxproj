@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		46B1D1B9A0B540E482B90389 /* Pods_MyFloridaIntern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF8CD3F756CE04ADA0E8BAC /* Pods_MyFloridaIntern.framework */; };
 		5E15DBA11E27F52C00F4FEC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E15DBA01E27F52C00F4FEC0 /* main.m */; };
-		5E15DBA41E27F52C00F4FEC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E15DBA31E27F52C00F4FEC0 /* AppDelegate.m */; };
 		5E15DBA71E27F52C00F4FEC0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E15DBA61E27F52C00F4FEC0 /* ViewController.m */; };
 		5E15DBAA1E27F52C00F4FEC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E15DBA81E27F52C00F4FEC0 /* Main.storyboard */; };
 		5E15DBAC1E27F52C00F4FEC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E15DBAB1E27F52C00F4FEC0 /* Assets.xcassets */; };
 		5E15DBAF1E27F52C00F4FEC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E15DBAD1E27F52C00F4FEC0 /* LaunchScreen.storyboard */; };
 		5E1E5C521E2FFA0B001F9655 /* SidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E5C511E2FFA0B001F9655 /* SidebarTableViewController.m */; };
 		5E1E5C551E2FFED6001F9655 /* QrCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E5C541E2FFED6001F9655 /* QrCodeViewController.m */; };
+		5E1E5C561E311980001F9655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E15DBA31E27F52C00F4FEC0 /* AppDelegate.m */; };
 		5E2A9AB61E2800D800B0C6CC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A9AB51E2800D800B0C6CC /* LoginViewController.m */; };
 		5E2A9ABE1E29682000B0C6CC /* AppointmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A9ABD1E29682000B0C6CC /* AppointmentsTableViewController.m */; };
 		5E2A9AC41E2D194A00B0C6CC /* AppointmentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A9AC31E2D194A00B0C6CC /* AppointmentsTableViewCell.m */; };
@@ -83,8 +83,10 @@
 		5E15DB9E1E27F52C00F4FEC0 /* MyFloridaIntern */ = {
 			isa = PBXGroup;
 			children = (
-				5E2A9ABC1E29682000B0C6CC /* AppointmentsTableViewController.h */,
-				5E2A9ABD1E29682000B0C6CC /* AppointmentsTableViewController.m */,
+				5E1E5C571E311A31001F9655 /* Appointments */,
+				5E1E5C591E311A68001F9655 /* Login */,
+				5E1E5C5B1E311A82001F9655 /* QR Code */,
+				5E1E5C5A1E311A7A001F9655 /* Sidebar */,
 				5E15DBA21E27F52C00F4FEC0 /* AppDelegate.h */,
 				5E15DBA31E27F52C00F4FEC0 /* AppDelegate.m */,
 				5E15DBA51E27F52C00F4FEC0 /* ViewController.h */,
@@ -94,16 +96,6 @@
 				5E15DBAD1E27F52C00F4FEC0 /* LaunchScreen.storyboard */,
 				5E15DBB01E27F52C00F4FEC0 /* Info.plist */,
 				5E15DB9F1E27F52C00F4FEC0 /* Supporting Files */,
-				5E2A9AB51E2800D800B0C6CC /* LoginViewController.m */,
-				5E2A9AB71E2800F700B0C6CC /* LoginViewController.h */,
-				5E2A9AC21E2D194A00B0C6CC /* AppointmentsTableViewCell.h */,
-				5E2A9AC31E2D194A00B0C6CC /* AppointmentsTableViewCell.m */,
-				5E2A9AC51E2D25F200B0C6CC /* AppointmentSessionViewController.h */,
-				5E2A9AC61E2D25F200B0C6CC /* AppointmentSessionViewController.m */,
-				5E1E5C501E2FFA0B001F9655 /* SidebarTableViewController.h */,
-				5E1E5C511E2FFA0B001F9655 /* SidebarTableViewController.m */,
-				5E1E5C531E2FFED6001F9655 /* QrCodeViewController.h */,
-				5E1E5C541E2FFED6001F9655 /* QrCodeViewController.m */,
 			);
 			path = MyFloridaIntern;
 			sourceTree = "<group>";
@@ -114,6 +106,46 @@
 				5E15DBA01E27F52C00F4FEC0 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E1E5C571E311A31001F9655 /* Appointments */ = {
+			isa = PBXGroup;
+			children = (
+				5E2A9ABC1E29682000B0C6CC /* AppointmentsTableViewController.h */,
+				5E2A9ABD1E29682000B0C6CC /* AppointmentsTableViewController.m */,
+				5E2A9AC21E2D194A00B0C6CC /* AppointmentsTableViewCell.h */,
+				5E2A9AC31E2D194A00B0C6CC /* AppointmentsTableViewCell.m */,
+				5E2A9AC51E2D25F200B0C6CC /* AppointmentSessionViewController.h */,
+				5E2A9AC61E2D25F200B0C6CC /* AppointmentSessionViewController.m */,
+			);
+			name = Appointments;
+			sourceTree = "<group>";
+		};
+		5E1E5C591E311A68001F9655 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5E2A9AB51E2800D800B0C6CC /* LoginViewController.m */,
+				5E2A9AB71E2800F700B0C6CC /* LoginViewController.h */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		5E1E5C5A1E311A7A001F9655 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				5E1E5C501E2FFA0B001F9655 /* SidebarTableViewController.h */,
+				5E1E5C511E2FFA0B001F9655 /* SidebarTableViewController.m */,
+			);
+			name = Sidebar;
+			sourceTree = "<group>";
+		};
+		5E1E5C5B1E311A82001F9655 /* QR Code */ = {
+			isa = PBXGroup;
+			children = (
+				5E1E5C531E2FFED6001F9655 /* QrCodeViewController.h */,
+				5E1E5C541E2FFED6001F9655 /* QrCodeViewController.m */,
+			);
+			name = "QR Code";
 			sourceTree = "<group>";
 		};
 		6F28828D4341D0E5BE26A169 /* Frameworks */ = {
@@ -256,11 +288,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E1E5C561E311980001F9655 /* AppDelegate.m in Sources */,
 				5E1E5C521E2FFA0B001F9655 /* SidebarTableViewController.m in Sources */,
 				5E2A9AC71E2D25F200B0C6CC /* AppointmentSessionViewController.m in Sources */,
 				5E2A9AB61E2800D800B0C6CC /* LoginViewController.m in Sources */,
 				5E15DBA71E27F52C00F4FEC0 /* ViewController.m in Sources */,
-				5E15DBA41E27F52C00F4FEC0 /* AppDelegate.m in Sources */,
 				5E1E5C551E2FFED6001F9655 /* QrCodeViewController.m in Sources */,
 				5E2A9AC41E2D194A00B0C6CC /* AppointmentsTableViewCell.m in Sources */,
 				5E15DBA11E27F52C00F4FEC0 /* main.m in Sources */,

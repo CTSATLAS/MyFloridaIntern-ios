@@ -60,6 +60,20 @@
     [sessionManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionTask *task, id responseObject){
         NSDictionary *responseDict = (NSDictionary *) responseObject;
         
+        NSLog(@"%@", responseDict);
+        
+        // Save user information to the NSUserDefaults
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+        [defaults setObject:responseDict[@"id"] forKey:@"id"];
+        [defaults setObject:responseDict[@"site_id"] forKey:@"siteId"];
+        [defaults setObject:responseDict[@"email"] forKey:@"email"];
+        [defaults setObject:responseDict[@"name"] forKey:@"fullName"];
+        [defaults setObject:responseDict[@"avatar"] forKey:@"avatar"];
+        [defaults setObject:responseDict[@"major"] forKey:@"major"];
+        
+        [defaults synchronize];
+        
         // Save the api_token for later requests
         UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"com.completetechnologysolutions.myfloridaintern"];
         keychain[@"apiToken"] = responseDict[@"api_token"];
@@ -80,7 +94,7 @@
 }
 
 - (IBAction)loginPressed:(id)sender {
-    
+    [self attemptLogin:sender];
 }
 
 @end
