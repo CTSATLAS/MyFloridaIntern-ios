@@ -10,9 +10,19 @@
 
 @interface AppointmentSessionViewController ()
 <OTSessionDelegate, OTSubscriberKitDelegate, OTPublisherDelegate>
+
 @property (weak, nonatomic) IBOutlet UIView *videoContainerView;
 @property (weak, nonatomic) IBOutlet UIView *subscriberView;
 @property (weak, nonatomic) IBOutlet UIView *publisherView;
+@property (weak, nonatomic) IBOutlet UIButton *switchCameraButton;
+@property (weak, nonatomic) IBOutlet UIButton *togglePublisherMicButton;
+@property (weak, nonatomic) IBOutlet UIButton *toggleSubscriberAudioButton;
+
+- (IBAction)switchCamera:(id)sender;
+- (IBAction)togglePublisherMic:(id)sender;
+- (IBAction)toggleSubscriberAudio:(id)sender;
+
+
 @end
 
 @implementation AppointmentSessionViewController {
@@ -231,4 +241,37 @@ didFailWithError:(OTError*)error
           subscriber.stream.streamId,
           error);
 }
+
+- (IBAction)switchCamera:(id)sender {
+    if (_publisher.cameraPosition == AVCaptureDevicePositionFront) {
+        _publisher.cameraPosition = AVCaptureDevicePositionBack;
+    } else {
+        _publisher.cameraPosition = AVCaptureDevicePositionFront;
+    }
+}
+
+- (IBAction)togglePublisherMic:(id)sender {
+    _publisher.publishAudio = !_publisher.publishAudio;
+    UIImage *buttonImage;
+    if (_publisher.publishAudio) {
+        buttonImage = [UIImage imageNamed:@"microphoneActive"];
+    } else {
+        buttonImage = [UIImage imageNamed:@"microphoneMuted"];
+    }
+    
+    [_togglePublisherMicButton setImage:buttonImage forState:UIControlStateNormal];
+}
+
+- (IBAction)toggleSubscriberAudio:(id)sender {
+    _subscriber.subscribeToAudio = !_subscriber.subscribeToAudio;
+    UIImage *buttonImage;
+    if (_subscriber.subscribeToAudio) {
+        buttonImage = [UIImage imageNamed:@"audioActive"];
+    } else {
+        buttonImage = [UIImage imageNamed:@"audioMuted"];
+    }
+    
+    [_toggleSubscriberAudioButton setImage:buttonImage forState:UIControlStateNormal];
+}
+
 @end
