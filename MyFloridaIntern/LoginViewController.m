@@ -65,7 +65,7 @@
         // Save user information to the NSUserDefaults
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-        [defaults setObject:responseDict[@"id"] forKey:@"id"];
+        [defaults setObject:responseDict[@"user_id"] forKey:@"id"];
         [defaults setObject:responseDict[@"site_id"] forKey:@"siteId"];
         [defaults setObject:responseDict[@"email"] forKey:@"email"];
         [defaults setObject:responseDict[@"name"] forKey:@"fullName"];

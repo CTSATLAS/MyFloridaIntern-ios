@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"com.completetechnologysolutions.myfloridaintern"];
+    keychain[@"apiToken"] = nil;
     NSString *apiToken = keychain[@"apiToken"];
     
     if (apiToken.length) {

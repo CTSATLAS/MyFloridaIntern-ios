@@ -40,7 +40,8 @@
 }
 
 - (void)retrieveQrCode {
-    NSURL *qrCodeURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://steve.myfloridaintern.com/img/qrcodes/%@.png", @134]];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSURL *qrCodeURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://steve.myfloridaintern.com/img/qrcodes/%@.png", [defaults objectForKey:@"id"]]];
     
     // Create a request to download the image so we can cache it locally
     NSURLRequest *imageRequest = [NSURLRequest requestWithURL:qrCodeURL
