@@ -20,11 +20,19 @@
     OTSession *_session;
     OTSubscriber* _subscriber;
     NSString *token;
+    BOOL subscriberCurrentlyConnected;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    // Setup the custom back button
+    self.navigationItem.hidesBackButton = YES;
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
+    self.navigationItem.leftBarButtonItem = newBackButton;
+    
+    subscriberCurrentlyConnected = NO;
+    
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"com.completetechnologysolutions.myfloridaintern"];
     NSString *apiToken = keychain[@"apiToken"];
 
@@ -44,6 +52,32 @@
                 failure:^(NSURLSessionTask *operation, NSError *error) {
                     NSLog(@"failed");
                 }];
+}
+
+-(void)back:(UIBarButtonItem *)sender
+{
+    if (subscriberCurrentlyConnected) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure?"
+                                                                       message:@"Your interview has not concluded. Are you sure you'd like to back out?"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Yes"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction *action) {
+                                                              [self.navigationController popViewControllerAnimated:YES];
+                                                          }];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:nil];
+        
+        [alert addAction:yesAction];
+        [alert addAction:cancelAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,9 +129,16 @@
     _publisher = nil;
 }
 
-/*
-#pragma mark - Navigation
 
+#pragma mark - Navigation
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    NSLog(@"connected: %d", subscriberCurrentlyConnected);
+    
+    return YES;
+}
+
+/*
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
@@ -171,14 +212,14 @@ didFailWithError:(OTError*)error
 
 - (void)subscriberDidConnectToStream:(OTSubscriberKit*)subscriber
 {
-    NSLog(@"subscriberDidConnectToStream (%@)",
-          subscriber.stream.connection.connectionId);
+    subscriberCurrentlyConnected = YES;
     [_subscriber.view setFrame:CGRectMake(0, 0, _subscriberView.bounds.size.width,
                                           _subscriberView.bounds.size.height)];
     [_subscriberView addSubview:_subscriber.view];
 }
 
 - (void)cleanupSubscriber {
+    subscriberCurrentlyConnected = NO;
     [_subscriber.view removeFromSuperview];
     _subscriber = nil;
 }
